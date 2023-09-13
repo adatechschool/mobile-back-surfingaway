@@ -1,14 +1,14 @@
 {
-  "name": "mobile-back-surfingaway",
+  "name": "surfingawayback",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js)",
+  "main": "\u001b[D\u001b[D\u001b[D\u001bserver.js)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/adatechschool/mobile-back-surfingaway.git"
+    "url": "git+https://github.com/adatechschool/mobile-back-surfingaway.git"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/adatechschool/mobile-back-surfingaway#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.5.1"
   }
 }
