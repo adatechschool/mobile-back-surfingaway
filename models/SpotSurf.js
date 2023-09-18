@@ -8,7 +8,7 @@ const SpotSchema = mongoose.Schema({
   'Difficulty Level': { type: Number, required: true },
   'Surf Break' : [{ type: String, required: true }],
   'Adress' : { type: String, required: false },
-  'Geocode' : { type: String, required: true },
+  'Geocode' : { type: String, required: false },
   'Influencers' : { type: String, required: false },
   'Peak Surf Season Begins' : { type: String, required: true },
   'Peak Surf Season Ends' : { type: String, required: true },
