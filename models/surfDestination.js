@@ -18,4 +18,4 @@ const SpotSchema = mongoose.Schema({
   'Longitude' : { type: Number, required: true },
 });
 
-module.exports = mongoose.model('SpotSurf', SpotSchema);
+module.exports = mongoose.model('surfDestination', SpotSchema);
