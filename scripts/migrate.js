@@ -2,7 +2,7 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 const Thing = require('../models/SpotSurf');
 
-mongoose.connect("mongodb+srv://Test:test@cluster0.pgsbfxp.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -11,7 +11,7 @@ mongoose.connect("mongodb+srv://Test:test@cluster0.pgsbfxp.mongodb.net/?retryWri
 
 
 const getAllSpots = async () => {
-    const cle = process.env.API_KEY; // Assurez-vous que votre clé API est stockée en toute sécurité
+    const cle = process.env.API_KEY; 
     try {
       const response = await axios.get(
         "mongodb+srv://<SurfTeam>:<123456azerty>@surfingaway.lg3w7hp.mongodb.net/?retryWrites=true&w=majority",
@@ -34,11 +34,21 @@ const getAllSpots = async () => {
     const records = await getAllSpots();
     records.forEach(record => {
       const thing = new Thing({
-        title: record.fields.Title,
-        description: record.fields.Description,
-        imageUrl: record.fields.ImageUrl,
-        price: record.fields.Price,
-        userId: record.fields.UserId
+        'Destination': req.body.Destination,
+        'Destination State/Country': req.body['Destination State/Country'],
+        'Photos': req.body.Photos,
+        'Surfline Link': req.body['Surfline Link'],
+        'Difficulty Level': req.body['Difficulty Level'],
+        'Surf Break': req.body['Surf Break'],
+        'Adress': req.body.Adress,
+        'Geocode': req.body.Geocode,
+        'Influencers': req.body.Influencers,
+        'Peak Surf Season Begins': req.body['Peak Surf Season Begins'],
+        'Peak Surf Season Ends': req.body['Peak Surf Season Ends'],
+        'Travellers': req.body.Travellers,
+        'City': req.body.City,
+        'Latitude': req.body.Latitude,
+        'Longitude': req.body.Longitude,
       });
       thing.save().then(
         () => {
