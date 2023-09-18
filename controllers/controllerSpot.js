@@ -1,4 +1,4 @@
-const SpotSurf = require('../models/SpotSurf');
+const SpotSurf = require('../models/surfDestination');
 
 exports.createSpot = (req, res, next) => {
   const SpotSurf = new SpotSurf({

@@ -1,8 +1,8 @@
 const axios = require('axios');
 const mongoose = require('mongoose');
-const Thing = require('../models/SpotSurf');
+const Thing = require('../models/surfDestination');
 
-mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongodb.net/surfspots", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -14,7 +14,7 @@ const getAllSpots = async () => {
     const cle = process.env.API_KEY; 
     try {
       const response = await axios.get(
-        "mongodb+srv://<SurfTeam>:<123456azerty>@surfingaway.lg3w7hp.mongodb.net/?retryWrites=true&w=majority",
+        "mongodb+srv://<SurfTeam>:<123456azerty>@surfingaway.lg3w7hp.mongodb.net/surfspots",
         {
           headers: {
             Authorization: `Bearer ${cle}`,
