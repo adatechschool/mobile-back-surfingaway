@@ -1,12 +1,13 @@
-const Thing = require('../models/thing');
+const SpotSurf = require('../models/SpotSurf');
 
 exports.createThing = (req, res, next) => {
-  const thing = new Thing({
+  const thing = new SpotSurf({
     title: req.body.title,
-    description: req.body.description,
+    location: req.body.location,
     imageUrl: req.body.imageUrl,
-    price: req.body.price,
-    userId: req.body.userId
+    difficulty: req.body.difficulty,
+    spotId: req.body.spotId,
+    surfBreak: req.body.surfBreak 
   });
   thing.save().then(
     () => {
@@ -24,7 +25,7 @@ exports.createThing = (req, res, next) => {
 };
 
 exports.getOneThing = (req, res, next) => {
-  Thing.findOne({
+  SpotSurf.findOne({
     _id: req.params.id
   }).then(
     (thing) => {
@@ -40,15 +41,16 @@ exports.getOneThing = (req, res, next) => {
 };
 
 exports.modifyThing = (req, res, next) => {
-  const thing = new Thing({
+  const thing = new SpotSurf({
     _id: req.params.id,
     title: req.body.title,
-    description: req.body.description,
+    location: req.body.location,
     imageUrl: req.body.imageUrl,
-    price: req.body.price,
-    userId: req.body.userId
+    difficulty: req.body.difficulty,
+    spotId: req.body.spotId,
+    surfBreak: req.body.surfBreak
   });
-  Thing.updateOne({ _id: req.params.id }, thing).then(
+  SpotSurf.updateOne({ _id: req.params.id }, thing).then(
     () => {
       res.status(201).json({
         message: 'Thing updated successfully!'
@@ -64,7 +66,7 @@ exports.modifyThing = (req, res, next) => {
 };
 
 exports.deleteThing = (req, res, next) => {
-  Thing.deleteOne({ _id: req.params.id }).then(
+  SpotSurf.deleteOne({ _id: req.params.id }).then(
     () => {
       res.status(200).json({
         message: 'Deleted!'
@@ -80,9 +82,9 @@ exports.deleteThing = (req, res, next) => {
 };
 
 exports.getAllStuff = (req, res, next) => {
-  Thing.find().then(
-    (things) => {
-      res.status(200).json(things);
+  SpotSurf.find().then(
+    (SpotSurf) => {
+      res.status(200).json(SpotSurf);
     }
   ).catch(
     (error) => {

@@ -1,10 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const stuffRoutes = require('./routes/stuff');
+const routesSpot = require('./routes/routesSpot');
+
 
 const app = express();
 
-mongoose.connect("mongodb+srv://Test:test@cluster0.pgsbfxp.mongodb.net/?retryWrites=true&w=majority",
+mongoose.connect("mongodb+srv://<SurfTeam>:<123456azerty>@surfingaway.lg3w7hp.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -12,7 +13,7 @@ mongoose.connect("mongodb+srv://Test:test@cluster0.pgsbfxp.mongodb.net/?retryWri
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-app.use('/api/stuff', stuffRoutes);
+app.use('/api/stuff', routesSpot);
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
