@@ -1,7 +1,7 @@
 const SpotSurf = require('../models/SpotSurf');
 
-exports.createThing = (req, res, next) => {
-  const thing = new SpotSurf({
+exports.createSpot = (req, res, next) => {
+  const SpotSurf = new SpotSurf({
     'Destination': req.body.Destination,
     'Destination State/Country': req.body['Destination State/Country'],
     'Photos': req.body.Photos,
@@ -18,10 +18,10 @@ exports.createThing = (req, res, next) => {
     'Latitude': req.body.Latitude,
     'Longitude': req.body.Longitude,
   });
-  thing.save().then(
+  SpotSurf.save().then(
     () => {
       res.status(201).json({
-        message: 'Post saved successfully!'
+        message: 'Spot saved successfully!'
       });
     }
   ).catch(
@@ -33,12 +33,14 @@ exports.createThing = (req, res, next) => {
   );
 };
 
-exports.getOneThing = (req, res, next) => {
+exports.getOneSpot = (req, res, next) => {
   SpotSurf.findOne({
     _id: req.params.id
   }).then(
-    (thing) => {
-      res.status(200).json(thing);
+    () => {
+      res.status(200).json({
+        message: 'Spot found successfully!'
+      });
     }
   ).catch(
     (error) => {
@@ -49,8 +51,8 @@ exports.getOneThing = (req, res, next) => {
   );
 };
 
-exports.modifyThing = (req, res, next) => {
-  const thing = {
+exports.modifySpot = (req, res, next) => {
+  const SpotSurf = {
     'Destination': req.body.Destination,
     'Destination State/Country': req.body['Destination State/Country'],
     'Photos': req.body.Photos,
@@ -67,10 +69,10 @@ exports.modifyThing = (req, res, next) => {
     'Latitude': req.body.Latitude,
     'Longitude': req.body.Longitude,
   };
-  SpotSurf.updateOne({ _id: req.params.id }, thing).then(
+  SpotSurf.updateOne({ _id: req.params.id }, SpotSurf).then(
     () => {
       res.status(201).json({
-        message: 'Thing updated successfully!'
+        message: 'Spot updated successfully!'
       });
     }
   ).catch(
@@ -82,23 +84,7 @@ exports.modifyThing = (req, res, next) => {
   );
 };
 
-exports.deleteThing = (req, res, next) => {
-  SpotSurf.deleteOne({ _id: req.params.id }).then(
-    () => {
-      res.status(200).json({
-        message: 'Deleted!'
-      });
-    }
-  ).catch(
-    (error) => {
-      res.status(400).json({
-        error: error
-      });
-    }
-  );
-};
-
-exports.getAllStuff = (req, res, next) => {
+exports.getAllSpots = (req, res, next) => {
   SpotSurf.find().then(
     (SpotSurf) => {
       res.status(200).json(SpotSurf);
