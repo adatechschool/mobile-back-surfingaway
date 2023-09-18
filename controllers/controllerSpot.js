@@ -2,12 +2,21 @@ const SpotSurf = require('../models/SpotSurf');
 
 exports.createThing = (req, res, next) => {
   const thing = new SpotSurf({
-    title: req.body.title,
-    location: req.body.location,
-    imageUrl: req.body.imageUrl,
-    difficulty: req.body.difficulty,
-    spotId: req.body.spotId,
-    surfBreak: req.body.surfBreak 
+    'Destination': req.body.Destination,
+    'Destination State/Country': req.body['Destination State/Country'],
+    'Photos': req.body.Photos,
+    'Surfline Link': req.body['Surfline Link'],
+    'Difficulty Level': req.body['Difficulty Level'],
+    'Surf Break': req.body['Surf Break'],
+    'Adress': req.body.Adress,
+    'Geocode': req.body.Geocode,
+    'Influencers': req.body.Influencers,
+    'Peak Surf Season Begins': req.body['Peak Surf Season Begins'],
+    'Peak Surf Season Ends': req.body['Peak Surf Season Ends'],
+    'Travellers': req.body.Travellers,
+    'City': req.body.City,
+    'Latitude': req.body.Latitude,
+    'Longitude': req.body.Longitude,
   });
   thing.save().then(
     () => {
@@ -41,15 +50,23 @@ exports.getOneThing = (req, res, next) => {
 };
 
 exports.modifyThing = (req, res, next) => {
-  const thing = new SpotSurf({
-    _id: req.params.id,
-    title: req.body.title,
-    location: req.body.location,
-    imageUrl: req.body.imageUrl,
-    difficulty: req.body.difficulty,
-    spotId: req.body.spotId,
-    surfBreak: req.body.surfBreak
-  });
+  const thing = {
+    'Destination': req.body.Destination,
+    'Destination State/Country': req.body['Destination State/Country'],
+    'Photos': req.body.Photos,
+    'Surfline Link': req.body['Surfline Link'],
+    'Difficulty Level': req.body['Difficulty Level'],
+    'Surf Break': req.body['Surf Break'],
+    'Adress': req.body.Adress,
+    'Geocode': req.body.Geocode,
+    'Influencers': req.body.Influencers,
+    'Peak Surf Season Begins': req.body['Peak Surf Season Begins'],
+    'Peak Surf Season Ends': req.body['Peak Surf Season Ends'],
+    'Travellers': req.body.Travellers,
+    'City': req.body.City,
+    'Latitude': req.body.Latitude,
+    'Longitude': req.body.Longitude,
+  };
   SpotSurf.updateOne({ _id: req.params.id }, thing).then(
     () => {
       res.status(201).json({
