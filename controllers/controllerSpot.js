@@ -1,7 +1,7 @@
 const SpotSurf = require('../models/surfDestination');
 
 exports.createSpot = (req, res, next) => {
-  const SpotSurf = new SpotSurf({
+  const spotSurf = new SpotSurf({
     'Destination': req.body.Destination,
     'Destination State/Country': req.body['Destination State/Country'],
     'Photos': req.body.Photos,
@@ -18,7 +18,7 @@ exports.createSpot = (req, res, next) => {
     'Latitude': req.body.Latitude,
     'Longitude': req.body.Longitude,
   });
-  SpotSurf.save().then(
+  spotSurf.save().then(
     () => {
       res.status(201).json({
         message: 'Spot saved successfully!'
@@ -37,10 +37,10 @@ exports.getOneSpot = (req, res, next) => {
   SpotSurf.findOne({
     _id: req.params.id
   }).then(
-    () => {
-      res.status(200).json({
-        message: 'Spot found successfully!'
-      });
+    (spotSurf) => {
+      res.status(200).json(
+        spotSurf
+      );
     }
   ).catch(
     (error) => {
@@ -52,7 +52,7 @@ exports.getOneSpot = (req, res, next) => {
 };
 
 exports.modifySpot = (req, res, next) => {
-  const SpotSurf = {
+  const spotSurf = new SpotSurf ({
     'Destination': req.body.Destination,
     'Destination State/Country': req.body['Destination State/Country'],
     'Photos': req.body.Photos,
@@ -68,8 +68,8 @@ exports.modifySpot = (req, res, next) => {
     'City': req.body.City,
     'Latitude': req.body.Latitude,
     'Longitude': req.body.Longitude,
-  };
-  SpotSurf.updateOne({ _id: req.params.id }, SpotSurf).then(
+  });
+  spotSurf.updateOne({ _id: req.params.id }, spotSurf).then(
     () => {
       res.status(201).json({
         message: 'Spot updated successfully!'
@@ -86,8 +86,8 @@ exports.modifySpot = (req, res, next) => {
 
 exports.getAllSpots = (req, res, next) => {
   SpotSurf.find().then(
-    (SpotSurf) => {
-      res.status(200).json(SpotSurf);
+    (spotSurf) => {
+      res.status(200).json(spotSurf);
     }
   ).catch(
     (error) => {
