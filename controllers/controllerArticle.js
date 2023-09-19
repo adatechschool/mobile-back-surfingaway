@@ -81,3 +81,19 @@ exports.getAllArticles = (req, res, next) => {
     }
   );
 };
+
+exports.deleteArticle = (req, res, next) => {
+  Article.deleteOne({ _id: req.params.id }).then(
+    () => {
+      res.status(200).json({
+        message: 'Article deleted successfully!'
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
+        error: error
+      });
+    }
+  );
+};

@@ -15,7 +15,7 @@ mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongod
 
 
 app.use(express.json());
-app.use('/', routesSpot);
+app.use('/posts', routesSpot);
 app.use('/articles', routesArticle);
 
 app.use((req, res, next) => {

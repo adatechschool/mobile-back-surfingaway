@@ -7,5 +7,6 @@ routesArticle.get('/', ArticleCtrl.getAllArticles);
 routesArticle.post('/', ArticleCtrl.createArticle);
 routesArticle.get('/:id', ArticleCtrl.getOneArticle);
 routesArticle.put('/:id', ArticleCtrl.modifyArticle);
+routesArticle.delete('/:id', ArticleCtrl.deleteArticle);
 
 module.exports = routesArticle;
