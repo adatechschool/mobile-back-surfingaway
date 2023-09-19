@@ -44,7 +44,9 @@ nodemon server
 /api/spots :
 - Tous les spots : GET / localhost:3000/spots
 - Un seul spot : GET / localhost:3000/spots/:id
-/api/tides : Endpoints pour les informations sur les marées.
+/api/aticles :
+- Tous les articles : GET / localhost:3000/articles
+- Un seul article : GET / localhost:3000/articles/:id
 
 
 ## Contributeurs
