@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routesSpot = require('./routes/routesSpot');
+const routesArticle = require('./routes/routesArticle');
 
 const app = express();
 
@@ -13,6 +14,7 @@ mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongod
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use('/spots', routesSpot);
+app.use('/articles', routesArticle)
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
