@@ -13,8 +13,10 @@ mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongod
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-app.use('/spots', routesSpot);
-app.use('/articles', routesArticle)
+
+app.use(express.json());
+app.use('/', routesSpot);
+app.use('/articles', routesArticle);
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

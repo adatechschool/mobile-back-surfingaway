@@ -1,11 +1,11 @@
 const express = require('express');
 const routesSpot = express.Router();
 
-const SpotCtrl = require('../controllers/controllerSpot');
+const spotCtrl = require('../controllers/controllerSpot');
 
-routesSpot.get('/', SpotCtrl.getAllSpots);
-routesSpot.post('/', SpotCtrl.createSpot);
-routesSpot.get('/:id', SpotCtrl.getOneSpot);
-routesSpot.put('/:id', SpotCtrl.modifySpot);
+routesSpot.get('/', spotCtrl.getAllSpots);
+routesSpot.post('/', spotCtrl.createSpot);
+routesSpot.get('/:id', spotCtrl.getOneSpot);
+routesSpot.put('/:id', spotCtrl.modifySpot);
 
 module.exports = routesSpot;

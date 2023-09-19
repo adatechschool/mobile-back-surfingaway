@@ -1,22 +1,22 @@
-const SpotSurf = require('../models/surfDestination');
+const SpotSurf = require('../models/spotSurf');
 
 exports.createSpot = (req, res, next) => {
   const spotSurf = new SpotSurf({
-    'Destination': req.body.Destination,
-    'Destination State/Country': req.body['Destination State/Country'],
-    'Photos': req.body.Photos,
-    'Surfline Link': req.body['Surfline Link'],
-    'Difficulty Level': req.body['Difficulty Level'],
-    'Surf Break': req.body['Surf Break'],
-    'Adress': req.body.Adress,
-    'Geocode': req.body.Geocode,
-    'Influencers': req.body.Influencers,
-    'Peak Surf Season Begins': req.body['Peak Surf Season Begins'],
-    'Peak Surf Season Ends': req.body['Peak Surf Season Ends'],
-    'Travellers': req.body.Travellers,
-    'City': req.body.City,
-    'Latitude': req.body.Latitude,
-    'Longitude': req.body.Longitude,
+    spotName: req.body.spotName,
+    country: req.body.country,
+    photos: req.body.photos,
+    surflineLink: req.body.surflineLink,
+    difficulty: req.body.difficulty,
+    surfBreak: req.body.surfBreak,
+    address: req.body.address,
+    geocode: req.body.geocode,
+    influencers: req.body.influencers,
+    seasonBegins: req.body.seasonBegins,
+    seasonEnds: req.body.seasonEnds,
+    travellers: req.body.travellers,
+    city: req.body.city,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
   });
   spotSurf.save().then(
     () => {
@@ -38,9 +38,7 @@ exports.getOneSpot = (req, res, next) => {
     _id: req.params.id
   }).then(
     (spotSurf) => {
-      res.status(200).json(
-        spotSurf
-      );
+      res.status(200).json(spotSurf);
     }
   ).catch(
     (error) => {
@@ -52,24 +50,25 @@ exports.getOneSpot = (req, res, next) => {
 };
 
 exports.modifySpot = (req, res, next) => {
-  const spotSurf = new SpotSurf ({
-    'Destination': req.body.Destination,
-    'Destination State/Country': req.body['Destination State/Country'],
-    'Photos': req.body.Photos,
-    'Surfline Link': req.body['Surfline Link'],
-    'Difficulty Level': req.body['Difficulty Level'],
-    'Surf Break': req.body['Surf Break'],
-    'Adress': req.body.Adress,
-    'Geocode': req.body.Geocode,
-    'Influencers': req.body.Influencers,
-    'Peak Surf Season Begins': req.body['Peak Surf Season Begins'],
-    'Peak Surf Season Ends': req.body['Peak Surf Season Ends'],
-    'Travellers': req.body.Travellers,
-    'City': req.body.City,
-    'Latitude': req.body.Latitude,
-    'Longitude': req.body.Longitude,
+  const spotSurf = new SpotSurf({
+    _id: req.params.id,
+    spotName: req.body.spotName,
+    country: req.body.country,
+    photos: req.body.photos,
+    surflinelink: req.body.surflineLink,
+    difficulty: req.body.difficulty,
+    surfBreak: req.body.surfBreak,
+    address: req.body.address,
+    geocode: req.body.geocode,
+    influencers: req.body.influencers,
+    seasonBegins: req.body.seasonBegins,
+    seasonEnds: req.body.seasonEnds,
+    travellers: req.body.travellers,
+    city: req.body.city,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
   });
-  spotSurf.updateOne({ _id: req.params.id }, spotSurf).then(
+  SpotSurf.updateOne({ _id: req.params.id }, spotSurf).then(
     () => {
       res.status(201).json({
         message: 'Spot updated successfully!'
