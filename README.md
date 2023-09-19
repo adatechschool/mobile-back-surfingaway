@@ -28,17 +28,15 @@ npm install
 
 ### 3.Configurez les variables d'environnement en créant un fichier .env à la racine du projet et en y ajoutant les informations nécessaires :
 ```bash
-makefile
-Copy code
 PORT=3000
-MONGODB_URI=URL_DE_VOTRE_BASE_MONGODB
-AIRTABLE_API_KEY=VOTRE_CLÉ_API
-AIRTABLE_BASE_ID=ID_DE_VOTRE_BASE
+MONGODB_URI=mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongodb.net/surfspots
+API_KEY=
+BASE_ID=
 ```
 
 ### 4.Démarrez le serveur en mode développement.
 ```bash
-npm start
+nodemon server
 ```
 
 ### 5. Endpoints API
