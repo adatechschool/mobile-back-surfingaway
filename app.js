@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routesSpot = require('./routes/routesSpot');
 
-
 const app = express();
 
 mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongodb.net/surfspots",
@@ -13,7 +12,7 @@ mongoose.connect("mongodb+srv://SurfTeam:123456azerty@surfingaway.lg3w7hp.mongod
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-app.use('/', routesSpot);
+app.use('/spots', routesSpot);
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

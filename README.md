@@ -42,8 +42,8 @@ nodemon server
 ### 5. Endpoints API
 /api/users : Endpoints pour la gestion des utilisateurs et des profils.
 /api/spots :
-- Tous les spots : GET / localhost:3000
-/api/weather : Endpoints pour les conditions météorologiques.
+- Tous les spots : GET / localhost:3000/spots
+- Un seul spot : GET / localhost:3000/spots/:id
 /api/tides : Endpoints pour les informations sur les marées.
 
 
