@@ -7,5 +7,6 @@ routesSpot.get('/', spotCtrl.getAllSpots);
 routesSpot.post('/', spotCtrl.createSpot);
 routesSpot.get('/:id', spotCtrl.getOneSpot);
 routesSpot.put('/:id', spotCtrl.modifySpot);
+routesSpot.delete('/:id', spotCtrl.deleteSpot);
 
 module.exports = routesSpot;

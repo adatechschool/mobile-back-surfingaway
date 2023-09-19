@@ -96,3 +96,19 @@ exports.getAllSpots = (req, res, next) => {
     }
   );
 };
+
+exports.deleteSpot = (req, res, next) => {
+  SpotSurf.deleteOne({ _id: req.params.id }).then(
+    () => {
+      res.status(200).json({
+        message: 'Spot deleted successfully!'
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
+        error: error
+      });
+    }
+  );
+};
