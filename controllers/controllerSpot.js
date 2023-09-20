@@ -1,7 +1,7 @@
-const SpotSurf = require('../models/spotSurf');
+const SurfDestination = require('../models/surfDestination');
 
 exports.createSpot = (req, res, next) => {
-  const spotSurf = new SpotSurf({
+  const surfDestination = new SurfDestination({
     spotName: req.body.spotName,
     country: req.body.country,
     photos: req.body.photos,
@@ -18,7 +18,7 @@ exports.createSpot = (req, res, next) => {
     latitude: req.body.latitude,
     longitude: req.body.longitude,
   });
-  spotSurf.save().then(
+  surfDestination.save().then(
     () => {
       res.status(201).json({
         message: 'Spot saved successfully!'
@@ -34,11 +34,11 @@ exports.createSpot = (req, res, next) => {
 };
 
 exports.getOneSpot = (req, res, next) => {
-  SpotSurf.findOne({
+  SurfDestination.findOne({
     _id: req.params.id
   }).then(
-    (spotSurf) => {
-      res.status(200).json(spotSurf);
+    (surfDestination) => {
+      res.status(200).json(surfDestination);
     }
   ).catch(
     (error) => {
@@ -50,7 +50,7 @@ exports.getOneSpot = (req, res, next) => {
 };
 
 exports.modifySpot = (req, res, next) => {
-  const spotSurf = new SpotSurf({
+  const surfDestination = new SurfDestination({
     _id: req.params.id,
     spotName: req.body.spotName,
     country: req.body.country,
@@ -68,7 +68,7 @@ exports.modifySpot = (req, res, next) => {
     latitude: req.body.latitude,
     longitude: req.body.longitude,
   });
-  SpotSurf.updateOne({ _id: req.params.id }, spotSurf).then(
+  SurfDestination.updateOne({ _id: req.params.id }, surfDestination).then(
     () => {
       res.status(201).json({
         message: 'Spot updated successfully!'
@@ -84,9 +84,9 @@ exports.modifySpot = (req, res, next) => {
 };
 
 exports.getAllSpots = (req, res, next) => {
-  SpotSurf.find().then(
-    (spotSurf) => {
-      res.status(200).json(spotSurf);
+  SurfDestination.find().then(
+    (surfDestination) => {
+      res.status(200).json(surfDestination);
     }
   ).catch(
     (error) => {
@@ -98,7 +98,7 @@ exports.getAllSpots = (req, res, next) => {
 };
 
 exports.deleteSpot = (req, res, next) => {
-  SpotSurf.deleteOne({ _id: req.params.id }).then(
+  SurfDestination.deleteOne({ _id: req.params.id }).then(
     () => {
       res.status(200).json({
         message: 'Spot deleted successfully!'
